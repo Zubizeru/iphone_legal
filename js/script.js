@@ -1,6 +1,6 @@
 const buttons = document.querySelectorAll("#image-picker li");
-
 const image = document.querySelector("#product-image");
+
 
 // Cria o elemento para exibir o nome da cor selecionada
 const colorNameDisplay = document.createElement('p');
@@ -11,8 +11,14 @@ colorNameDisplay.style.marginTop = '1rem';
 
 // Adiciona o elemento após a imagem do produto
 image.parentNode.insertBefore(colorNameDisplay, image.nextSibling);
-
-// 
+// Mapeamento dos ids para nomes das cores
+const colorNames = {
+    'green': 'Verde-alpino',
+    'silver': 'Prateado',
+    'golden': 'Dourado',
+    'grafite': 'Grafite',
+    'blue': 'Azul'
+};
 
 buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -34,5 +40,9 @@ buttons.forEach((btn) => {
 
         // Atualiza o texto do nome da cor selecionada
         colorNameDisplay.textContent = `Cor selecionada: ${colorNames[id]}`;
-    })
+    });
 });
+
+/* Exibir Nome da Cor Selecionada Dinamicamente
+Ao selecionar uma cor, mostrar o nome da cor em destaque próximo à imagem. 
+Conceitos: manipulação de DOM, atualização de texto dinâmico, uso de objetos para mapear id/cor.*/
